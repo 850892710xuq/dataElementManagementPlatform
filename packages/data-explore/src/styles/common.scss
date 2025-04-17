@@ -1,0 +1,183 @@
+@import './variables.scss';
+
+// 重置样式
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  font-family: Microsoft YaHei, PingFang SC, Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-size: $font-size-base;
+  color: $text-regular;
+  background-color: $background-color;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// 布局类
+.flex {
+  display: flex;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.flex-1 {
+  flex: 1;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.align-center {
+  align-items: center;
+}
+
+// 间距类
+.m-b-sm {
+  margin-bottom: $spacing-small;
+}
+
+.m-b-md {
+  margin-bottom: $spacing-medium;
+}
+
+.m-b-lg {
+  margin-bottom: $spacing-large;
+}
+
+.m-r-sm {
+  margin-right: $spacing-small;
+}
+
+.m-r-md {
+  margin-right: $spacing-medium;
+}
+
+.m-r-lg {
+  margin-right: $spacing-large;
+}
+
+// 文本类
+.text-primary {
+  color: $text-primary;
+}
+
+.text-secondary {
+  color: $text-secondary;
+}
+
+.text-success {
+  color: $success-color;
+}
+
+.text-warning {
+  color: $warning-color;
+}
+
+.text-danger {
+  color: $danger-color;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-bold {
+  font-weight: bold;
+}
+
+// 卡片样式
+.card {
+  background-color: $background-white;
+  border-radius: $border-radius-base;
+  box-shadow: $box-shadow-light;
+  padding: $spacing-large;
+  margin-bottom: $spacing-medium;
+}
+
+// 表格样式
+.table-container {
+  margin: $spacing-medium 0;
+  
+  .el-table {
+    th {
+      background-color: #f5f7fa;
+      color: $text-primary;
+      font-weight: bold;
+    }
+    
+    td {
+      color: $text-regular;
+    }
+  }
+}
+
+// 表单样式
+.form-container {
+  padding: $spacing-large;
+  
+  .el-form-item {
+    margin-bottom: $spacing-large;
+  }
+  
+  .form-buttons {
+    text-align: right;
+    margin-top: $spacing-xl;
+  }
+}
+
+// 搜索区域样式
+.search-area {
+  background-color: $background-white;
+  padding: $spacing-medium;
+  margin-bottom: $spacing-medium;
+  border-radius: $border-radius-base;
+  
+  .el-form-item {
+    margin-bottom: $spacing-small;
+  }
+}
+
+// 操作按钮样式
+.operation-buttons {
+  margin-bottom: $spacing-medium;
+  
+  .el-button {
+    margin-right: $spacing-small;
+    
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
+
+// 分页样式
+.pagination-container {
+  margin-top: $spacing-large;
+  text-align: right;
+}
+
+// 过渡动画
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity $transition-duration;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+} 

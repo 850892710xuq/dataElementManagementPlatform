@@ -1,0 +1,203 @@
+/* 全局样式文件 */
+
+/* 统一主题颜色变量 */
+:root {
+  --primary-color: #409EFF;
+  --success-color: #67C23A;
+  --warning-color: #E6A23C;
+  --danger-color: #F56C6C;
+  --info-color: #909399;
+  
+  --primary-text: #303133;
+  --regular-text: #606266;
+  --secondary-text: #909399;
+  --placeholder-text: #C0C4CC;
+  
+  --border-color: #DCDFE6;
+  --border-light: #E4E7ED;
+  --bg-color: #F5F7FA;
+}
+
+/* 去掉筛选按钮的默认下边距 */
+.el-form-item--default {
+  margin-bottom: 0 !important;
+}
+.el-form-item {
+  margin-bottom: 0 !important;
+}
+
+/* 覆盖Element Plus表单项默认的水平间距 */
+.el-form--inline .el-form-item {
+  margin-right: 0 !important;
+}
+
+/* 通用布局类 */
+.page-container {
+  background-color: var(--bg-color);
+  min-height: 100%;
+}
+
+.card-container {
+  background-color: #fff;
+  border-radius: 4px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+  margin-bottom: 20px;
+  padding: 20px;
+}
+
+/* 搜索区域样式 */
+.search-container {
+  margin-bottom: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  
+  .search-item {
+    margin-right: 20px;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    
+    .label {
+      margin-right: 8px;
+      white-space: nowrap;
+    }
+  }
+  
+  .search-buttons {
+    margin-left: auto;
+    
+    .el-button {
+      margin-left: 10px;
+    }
+  }
+}
+
+/* 表格容器样式 */
+.table-container {
+  margin-bottom: 20px;
+  
+  .el-table {
+    --el-table-header-bg-color: #f5f7fa;
+    --el-table-border-color: #ebeef5;
+    --el-table-row-hover-bg-color: #f5f7fa;
+  }
+}
+
+/* 操作列样式 */
+.table-actions {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+:deep(.el-button--primary.el-button--link) {
+  background-color: transparent;
+  border-color: transparent;
+  color: #3370ff;
+  
+  &:hover,
+  &:focus {
+    background-color: transparent;
+    border-color: transparent;
+    color: #5b8bff;
+  }
+}
+
+/* 分页容器样式 */
+.pagination-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+}
+
+/* 详情页样式 */
+.detail-container {
+  background-color: #fff;
+  border-radius: 4px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+  padding: 24px;
+  
+  .detail-header {
+    border-bottom: 1px solid var(--border-light);
+    padding-bottom: 16px;
+    margin-bottom: 20px;
+    
+    .title {
+      font-size: 18px;
+      font-weight: bold;
+      color: var(--primary-text);
+    }
+  }
+  
+  .detail-content {
+    .section {
+      margin-bottom: 24px;
+      
+      .section-title {
+        font-size: 16px;
+        font-weight: bold;
+        margin-bottom: 16px;
+        color: var(--primary-text);
+      }
+    }
+    
+    .info-item {
+      display: flex;
+      margin-bottom: 16px;
+      
+      .label {
+        width: 120px;
+        color: var(--secondary-text);
+        text-align: right;
+        padding-right: 12px;
+        flex-shrink: 0;
+      }
+      
+      .value {
+        flex: 1;
+        color: var(--primary-text);
+      }
+    }
+  }
+}
+
+/* 响应式适配 */
+@media screen and (max-width: 768px) {
+  .search-container {
+    flex-direction: column;
+    align-items: flex-start;
+    
+    .search-item {
+      margin-right: 0;
+      width: 100%;
+    }
+    
+    .search-buttons {
+      margin-left: 0;
+      margin-top: 16px;
+      width: 100%;
+      display: flex;
+      justify-content: flex-end;
+    }
+  }
+  
+  .detail-content {
+    .info-item {
+      flex-direction: column;
+      
+      .label {
+        width: 100%;
+        text-align: left;
+        margin-bottom: 4px;
+      }
+    }
+  }
+}
+
+/* 操作按钮样式 */
+.operation-button {
+  .el-icon {
+    margin-right: 2px !important;  // 统一设置图标和文字间距为2px
+  }
+} 

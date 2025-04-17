@@ -1,0 +1,60 @@
+// 主题色
+$primary-color: #3370ff;
+$success-color: #67C23A;
+$warning-color: #E6A23C;
+$danger-color: #F56C6C;
+$info-color: #909399;
+
+// 文字颜色
+$text-primary: #303133;
+$text-regular: #606266;
+$text-secondary: #909399;
+$text-placeholder: #C0C4CC;
+
+// 边框颜色
+$border-color-base: #DCDFE6;
+$border-color-light: #E4E7ED;
+$border-color-lighter: #EBEEF5;
+$border-color-extra-light: #F2F6FC;
+
+// 背景色
+$background-color: #f0f2f5;
+$background-white: #ffffff;
+
+// 布局相关
+$header-height: 60px;
+$sidebar-width: 200px;
+$sidebar-collapse-width: 64px;
+$navbar-height: 60px;
+
+// 间距
+$padding-base: 20px;
+$margin-base: 20px;
+
+// 圆角
+$border-radius-base: 4px;
+$border-radius-small: 2px;
+
+// 阴影
+$box-shadow-base: 0 2px 4px rgba(0, 0, 0, 0.12);
+$box-shadow-light: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+$box-shadow-dark: 0 2px 4px rgba(0, 0, 0, 0.3);
+
+// 过渡动画
+$transition-duration: 0.3s;
+
+// 字体大小
+$font-size-base: 14px;
+$font-size-small: 13px;
+$font-size-large: 16px;
+$font-size-extra-large: 18px;
+
+// z-index
+$z-index-normal: 1;
+$z-index-dropdown: 1000;
+$z-index-sticky: 1020;
+$z-index-fixed: 1030;
+$z-index-modal-backdrop: 1040;
+$z-index-modal: 1050;
+$z-index-popover: 1060;
+$z-index-tooltip: 1070; 

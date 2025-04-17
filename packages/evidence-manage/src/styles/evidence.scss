@@ -1,0 +1,32 @@
+// 存证管理中心全局样式
+
+// 操作栏按钮样式
+.table-actions {
+  display: flex;
+  justify-content: center;
+  
+  .operation-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0;
+    font-size: 14px;
+    padding: 0;
+    height: auto;
+    
+    .el-icon {
+      font-size: 14px;
+      margin-right: 0;
+    }
+
+    span {
+      margin-left: 0;
+    }
+  }
+}
+
+// 覆盖 element-plus 的默认样式
+.el-button {
+  [class*=el-icon] + span {
+    margin-left: 0;
+  }
+} 

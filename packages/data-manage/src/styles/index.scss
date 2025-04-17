@@ -1,0 +1,106 @@
+// 导入Element Plus主题配置
+@use './element/index.scss' as *;
+
+// 导入Element Plus基础样式
+@use 'element-plus/theme-chalk/src/index.scss' as *;
+
+// 全局样式
+:root {
+  --el-color-primary: #3370ff;
+}
+
+// 重置基础样式
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+#app {
+  height: 100%;
+}
+
+// 覆盖Element Plus表单项默认的水平间距
+.el-form--inline .el-form-item {
+  margin-right: 0 !important;
+}
+
+// 滚动条样式
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 3px;
+  
+  &:hover {
+    background: #a8a8a8;
+  }
+}
+
+// 公共样式类
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.text-ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+// Element Plus 样式覆盖
+.el-table {
+  .el-table__header-wrapper {
+    th {
+      background-color: #f5f7fa;
+      color: #606266;
+      font-weight: 600;
+    }
+  }
+}
+
+.el-form {
+  .el-form-item__label {
+    font-weight: 500;
+  }
+}
+
+.el-dialog {
+  .el-dialog__header {
+    margin-right: 0;
+    padding: 20px;
+    border-bottom: 1px solid #dcdfe6;
+  }
+  
+  .el-dialog__body {
+    padding: 20px;
+  }
+  
+  .el-dialog__footer {
+    padding: 20px;
+    border-top: 1px solid #dcdfe6;
+  }
+} 
+ 

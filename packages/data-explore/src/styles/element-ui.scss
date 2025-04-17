@@ -1,0 +1,116 @@
+@import './variables.scss';
+
+/* 覆盖Element Plus默认样式 */
+
+// 主题色覆盖
+:root {
+  --el-color-primary: #{$primary-color};
+  --el-color-success: #{$success-color};
+  --el-color-warning: #{$warning-color};
+  --el-color-danger: #{$danger-color};
+  --el-color-info: #{$info-color};
+}
+
+// 表格样式覆盖
+.el-table {
+  --el-table-header-bg-color: #f5f7fa;
+  --el-table-border-color: #{$border-lighter};
+  --el-table-row-hover-bg-color: #{$background-color};
+  
+  th {
+    font-weight: bold;
+  }
+  
+  .el-table__header-wrapper {
+    th {
+      background-color: var(--el-table-header-bg-color);
+    }
+  }
+}
+
+// 按钮样式覆盖
+.el-button {
+  --el-button-hover-bg-color: #{lighten($primary-color, 10%)};
+  --el-button-hover-border-color: #{lighten($primary-color, 10%)};
+  
+  &--text {
+    padding: 0;
+  }
+}
+
+// 表单样式覆盖
+.el-form {
+  --el-form-label-font-size: #{$font-size-base};
+  
+  .el-form-item__label {
+    font-weight: normal;
+  }
+}
+
+// 输入框样式覆盖
+.el-input {
+  --el-input-border-color: #{$border-color};
+  --el-input-hover-border-color: #{$primary-color};
+  --el-input-focus-border-color: #{$primary-color};
+}
+
+// 下拉菜单样式覆盖
+.el-select-dropdown {
+  --el-select-option-hover-bg: #{$background-color};
+}
+
+// 分页样式覆盖
+.el-pagination {
+  --el-pagination-button-bg-color: #{$background-white};
+  --el-pagination-hover-color: #{$primary-color};
+  
+  .btn-prev,
+  .btn-next {
+    background-color: var(--el-pagination-button-bg-color);
+  }
+}
+
+// 对话框样式覆盖
+.el-dialog {
+  --el-dialog-padding-primary: #{$spacing-large};
+  
+  .el-dialog__header {
+    margin: 0;
+    padding: $spacing-medium $spacing-large;
+    border-bottom: 1px solid $border-light;
+  }
+  
+  .el-dialog__body {
+    padding: $spacing-large;
+  }
+  
+  .el-dialog__footer {
+    padding: $spacing-medium $spacing-large;
+    border-top: 1px solid $border-light;
+  }
+}
+
+// 消息提示样式覆盖
+.el-message {
+  --el-message-bg-color: #{$background-white};
+  --el-message-border-color: #{$border-light};
+  min-width: 380px;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: $border-radius-base;
+  
+  &--success {
+    --el-message-bg-color: #{lighten($success-color, 42%)};
+    --el-message-border-color: #{lighten($success-color, 30%)};
+  }
+  
+  &--warning {
+    --el-message-bg-color: #{lighten($warning-color, 42%)};
+    --el-message-border-color: #{lighten($warning-color, 30%)};
+  }
+  
+  &--error {
+    --el-message-bg-color: #{lighten($danger-color, 42%)};
+    --el-message-border-color: #{lighten($danger-color, 30%)};
+  }
+} 
