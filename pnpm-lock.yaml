@@ -315,6 +315,67 @@ importers:
         specifier: ^1.8.8
         version: 1.8.27(typescript@5.1.6)
 
+  packages/third-party:
+    dependencies:
+      '@element-plus/icons-vue':
+        specifier: ^2.3.1
+        version: 2.3.1(vue@3.5.13)
+      '@vueuse/core':
+        specifier: ^10.3.0
+        version: 10.11.1(vue@3.5.13)
+      axios:
+        specifier: ^1.4.0
+        version: 1.8.3
+      element-plus:
+        specifier: ^2.3.9
+        version: 2.9.6(vue@3.5.13)
+      pinia:
+        specifier: ^2.1.6
+        version: 2.3.1(typescript@5.1.6)(vue@3.5.13)
+      vue:
+        specifier: ^3.3.4
+        version: 3.5.13(typescript@5.1.6)
+      vue-router:
+        specifier: ^4.2.4
+        version: 4.5.0(vue@3.5.13)
+    devDependencies:
+      '@types/node':
+        specifier: ^20.5.0
+        version: 20.17.24
+      '@vitejs/plugin-vue':
+        specifier: ^4.3.1
+        version: 4.6.2(vite@4.5.9)(vue@3.5.13)
+      '@vue/eslint-config-prettier':
+        specifier: ^8.0.0
+        version: 8.0.0(eslint@8.57.1)(prettier@3.5.3)
+      '@vue/eslint-config-typescript':
+        specifier: ^11.0.3
+        version: 11.0.3(eslint-plugin-vue@9.33.0)(eslint@8.57.1)(typescript@5.1.6)
+      '@vue/tsconfig':
+        specifier: ^0.4.0
+        version: 0.4.0
+      eslint:
+        specifier: ^8.47.0
+        version: 8.57.1
+      eslint-plugin-vue:
+        specifier: ^9.17.0
+        version: 9.33.0(eslint@8.57.1)
+      prettier:
+        specifier: ^3.0.2
+        version: 3.5.3
+      sass:
+        specifier: ^1.66.1
+        version: 1.85.1
+      typescript:
+        specifier: ~5.1.6
+        version: 5.1.6
+      vite:
+        specifier: ^4.4.9
+        version: 4.5.9(@types/node@20.17.24)(sass@1.85.1)
+      vue-tsc:
+        specifier: ^1.8.8
+        version: 1.8.27(typescript@5.1.6)
+
 packages:
 
   /@babel/helper-string-parser@7.25.9:

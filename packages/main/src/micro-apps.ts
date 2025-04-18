@@ -10,6 +10,15 @@ const microApps: RegistrableApp[] = [
     props: {
       routerBase: '/data-explore'
     }
+  },
+  {
+    name: 'third-party',
+    entry: '//localhost:8004',
+    container: '#subapp-viewport',
+    activeRule: '/third-service',
+    props: {
+      routerBase: '/third-service'
+    }
   }
 ]
 

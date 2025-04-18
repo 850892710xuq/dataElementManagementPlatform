@@ -1,0 +1,31 @@
+{
+  "include": ["env.d.ts", "src/**/*", "src/**/*.vue"],
+  "exclude": ["src/**/__tests__/*"],
+  "compilerOptions": {
+    "composite": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+    },
+    "moduleResolution": "node",
+    "types": ["vite/client"],
+    "target": "ESNext",
+    "module": "ESNext",
+    "importHelpers": true,
+    "isolatedModules": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "useDefineForClassFields": true,
+    "strict": true,
+    "jsx": "preserve",
+    "sourceMap": true,
+    "resolveJsonModule": true,
+    "lib": ["ESNext", "DOM", "DOM.Iterable"]
+  },
+  "references": [
+    {
+      "path": "./tsconfig.node.json"
+    }
+  ]
+} 
