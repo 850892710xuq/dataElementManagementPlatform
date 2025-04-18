@@ -273,22 +273,196 @@ export const cancelRegistryList = [
     id: 3001,
     name: '城市电力使用量数据',
     provider: '市电力公司',
-    cancelReason: '数据来源系统升级改造，暂停数据服务',
-    submitTime: '2023-07-19 14:08:52',
+    cancelReason: '数据采集设备更新，原有数据结构与新系统不兼容，申请注销后重新提交新版本数据资源',
+    submitTime: '2023-09-18 14:08:52',
     status: 1, // 1-待审核 2-已通过 3-已拒绝
     submitUser: '黄志强',
-    originalId: 1009
+    originalId: 1009,
+    certificates: ['CERT-1009-001']
   },
   {
     id: 3002,
     name: '智慧路灯运行状态数据',
     provider: '市城市管理局',
-    cancelReason: '数据采集项目已结束，不再提供该数据服务',
-    submitTime: '2023-07-12 13:47:29',
+    cancelReason: '数据采集项目已结束，不再提供该数据服务，现申请注销相关证书',
+    submitTime: '2023-09-12 13:47:29',
     status: 2,
     submitUser: '孙伟',
     originalId: 1010,
-    updateTime: '2023-07-14 10:22:46'
+    updateTime: '2023-09-14 10:22:46',
+    certificates: ['CERT-1010-001'],
+    reviewHistory: [
+      {
+        reviewer: '孙伟',
+        reviewTime: '2023-09-12 13:47:29',
+        action: '提交注销申请',
+        status: '待审核',
+        comments: '项目结束，申请注销数据资源'
+      },
+      {
+        reviewer: '数据管理员',
+        reviewTime: '2023-09-14 10:22:46',
+        action: '审核通过',
+        status: '已通过',
+        comments: '经核实项目确已结束，同意注销'
+      }
+    ]
+  },
+  {
+    id: 3003,
+    name: '公共场所WiFi使用情况数据',
+    provider: '市数据管理中心',
+    cancelReason: '因数据安全合规要求，需对该数据资源进行重新评估，暂时注销现有数据资源',
+    submitTime: '2023-09-20 09:32:18',
+    status: 1,
+    submitUser: '刘敏',
+    originalId: 1005,
+    certificates: ['CERT-1005-001', 'CERT-1005-002']
+  },
+  {
+    id: 3004,
+    name: '医疗资源分布及使用情况数据',
+    provider: '市卫健委',
+    cancelReason: '根据最新《医疗健康数据安全管理规定》，需对现有数据资源重新分级分类，申请注销后重新登记',
+    submitTime: '2023-09-15 11:23:45',
+    status: 3,
+    submitUser: '陈建国',
+    originalId: 1006,
+    updateTime: '2023-09-17 15:37:22',
+    certificates: ['CERT-1006-001'],
+    reviewHistory: [
+      {
+        reviewer: '陈建国',
+        reviewTime: '2023-09-15 11:23:45',
+        action: '提交注销申请',
+        status: '待审核',
+        comments: '根据新规定需重新登记'
+      },
+      {
+        reviewer: '数据管理员',
+        reviewTime: '2023-09-17 15:37:22',
+        action: '审核拒绝',
+        status: '已拒绝',
+        comments: '现有数据资源符合新规定要求，无需注销，可通过变更登记调整相关分类'
+      }
+    ]
+  },
+  {
+    id: 3005,
+    name: '企业工商注册信息数据',
+    provider: '市市场监督管理局',
+    cancelReason: '该数据资源与市大数据中心提供的企业信用信息数据存在重复，为避免数据重复发布，申请注销本数据资源',
+    submitTime: '2023-09-25 16:42:19',
+    status: 2,
+    submitUser: '吴丽娟',
+    originalId: 1008,
+    updateTime: '2023-09-27 14:28:35',
+    certificates: ['CERT-1008-001'],
+    reviewHistory: [
+      {
+        reviewer: '吴丽娟',
+        reviewTime: '2023-09-25 16:42:19',
+        action: '提交注销申请',
+        status: '待审核',
+        comments: '与市大数据中心数据重复，申请注销'
+      },
+      {
+        reviewer: '数据管理员',
+        reviewTime: '2023-09-27 14:28:35',
+        action: '审核通过',
+        status: '已通过',
+        comments: '经核实确实存在数据重复，同意注销，建议后续考虑联合共建'
+      }
+    ]
+  },
+  {
+    id: 3006,
+    name: '重点区域空气质量检测数据',
+    provider: '市环境监测中心',
+    cancelReason: '监测站点设备全面升级，数据采集精度和频率发生变化，需重新规范数据标准后再次提交',
+    submitTime: '2023-09-28 08:45:36',
+    status: 1,
+    submitUser: '王红梅',
+    originalId: 1003,
+    certificates: ['CERT-1003-001', 'CERT-1003-002']
+  },
+  {
+    id: 3007,
+    name: '城市地下管网分布数据',
+    provider: '市住建局',
+    cancelReason: '因城市安全管理需要，该数据资源需调整访问权限和使用范围，申请注销现有数据资源后重新登记',
+    submitTime: '2023-09-22 13:55:37',
+    status: 2,
+    submitUser: '郑华',
+    originalId: 1007,
+    updateTime: '2023-09-24 10:12:48',
+    certificates: ['CERT-1007-001'],
+    reviewHistory: [
+      {
+        reviewer: '郑华',
+        reviewTime: '2023-09-22 13:55:37',
+        action: '提交注销申请',
+        status: '待审核',
+        comments: '需调整数据安全级别和访问权限'
+      },
+      {
+        reviewer: '数据管理员',
+        reviewTime: '2023-09-24 10:12:48',
+        action: '审核通过',
+        status: '已通过',
+        comments: '同意注销，请尽快重新提交符合安全要求的数据资源登记'
+      }
+    ]
+  },
+  {
+    id: 3008,
+    name: '城市供水水质监测数据',
+    provider: '市自来水公司',
+    cancelReason: '原数据资源存在数据项缺失和标准不统一问题，需注销后重新规范提交',
+    submitTime: '2023-09-23 14:38:22',
+    status: 1,
+    submitUser: '赵明辉',
+    originalId: 1004,
+    certificates: ['CERT-1004-001']
+  },
+  {
+    id: 3009,
+    name: '市区道路交通流量监测数据',
+    provider: '市交通管理局',
+    cancelReason: '监测系统迁移至新的平台，数据格式和接口协议发生变更，需注销现有数据资源',
+    submitTime: '2023-09-10 09:12:10',
+    status: 3,
+    submitUser: '李文杰',
+    originalId: 1002,
+    updateTime: '2023-09-11 16:43:28',
+    certificates: ['CERT-1002-001'],
+    reviewHistory: [
+      {
+        reviewer: '李文杰',
+        reviewTime: '2023-09-10 09:12:10',
+        action: '提交注销申请',
+        status: '待审核',
+        comments: '系统升级，接口变更，申请注销'
+      },
+      {
+        reviewer: '数据管理员',
+        reviewTime: '2023-09-11 16:43:28',
+        action: '审核拒绝',
+        status: '已拒绝',
+        comments: '系统更新不影响数据资源本身，建议通过变更登记流程更新相关接口信息'
+      }
+    ]
+  },
+  {
+    id: 3010,
+    name: '城市公交实时位置及客流数据',
+    provider: '市公共交通集团有限公司',
+    cancelReason: '由于公交路线优化调整，原有数据结构无法适应新的线路编码体系，申请注销后重新提交',
+    submitTime: '2023-09-26 10:35:42',
+    status: 1,
+    submitUser: '张志明',
+    originalId: 1001,
+    certificates: ['CERT-1001-001', 'CERT-1001-002']
   }
 ]
 
@@ -620,4 +794,341 @@ export const changeRegistryDetails = [
 export function getChangeRegistryDetailById(id: string) {
   const detail = changeRegistryDetails.find(item => item.id === id)
   return detail || null
+}
+
+// 登记进度查询专用数据
+export const registryProgressList = [
+  {
+    id: 3001,
+    name: '智慧城市人流量监测数据',
+    provider: '城市数据科技有限公司',
+    industry: '智慧城市',
+    dataType: '流式数据',
+    submitTime: '2023-09-05 10:23:45',
+    status: 1, // 1-待审核 2-已通过 3-已拒绝
+    submitUser: '王明亮',
+    progressStatus: '资料审核中',
+    progressPercent: 60,
+    submitter: '王明亮',
+    providerContact: '王明亮',
+    dataSource: '市区监控摄像头',
+    updateFrequency: '实时',
+    updateTime: null
+  },
+  {
+    id: 3002,
+    name: '城市交通拥堵指数数据',
+    provider: '交通大数据分析公司',
+    industry: '交通运输',
+    dataType: '结构化数据',
+    submitTime: '2023-09-01 14:35:21',
+    status: 2, // 1-待审核 2-已通过 3-已拒绝
+    submitUser: '李道明',
+    progressStatus: '已完成',
+    progressPercent: 100,
+    submitter: '李道明',
+    providerContact: '李道明',
+    dataSource: '交通监控系统',
+    updateFrequency: '每5分钟',
+    updateTime: '2023-09-03 16:42:30'
+  },
+  {
+    id: 3003,
+    name: '区域商业消费行为分析数据',
+    provider: '联合支付科技有限公司',
+    industry: '金融',
+    dataType: '结构化数据',
+    submitTime: '2023-08-25 09:12:38',
+    status: 2, // 1-待审核 2-已通过 3-已拒绝
+    submitUser: '张金融',
+    progressStatus: '已完成',
+    progressPercent: 100,
+    submitter: '张金融',
+    providerContact: '刘海涛',
+    dataSource: '支付交易系统',
+    updateFrequency: '每日',
+    updateTime: '2023-08-27 11:30:15'
+  },
+  {
+    id: 3004,
+    name: '医疗资源分布及使用效率数据',
+    provider: '智慧医疗大数据平台',
+    industry: '医疗健康',
+    dataType: '结构化数据',
+    submitTime: '2023-09-10 08:45:33',
+    status: 3, // 1-待审核 2-已通过 3-已拒绝
+    submitUser: '钱医生',
+    progressStatus: '已拒绝',
+    progressPercent: 100,
+    submitter: '钱医生',
+    providerContact: '钱医生',
+    dataSource: '全市医疗信息系统',
+    updateFrequency: '每周',
+    updateTime: '2023-09-12 15:38:42'
+  },
+  {
+    id: 3005,
+    name: '农产品产销监测数据',
+    provider: '农业农村大数据中心',
+    industry: '农业',
+    dataType: '结构化数据',
+    submitTime: '2023-09-08 11:22:55',
+    status: 1, // 1-待审核 2-已通过 3-已拒绝
+    submitUser: '周农业',
+    progressStatus: '资料审核中',
+    progressPercent: 40,
+    submitter: '周农业',
+    providerContact: '周农业',
+    dataSource: '农业物联网监测系统',
+    updateFrequency: '每日',
+    updateTime: null
+  },
+  {
+    id: 3006,
+    name: '城市供水水质监测数据',
+    provider: '市供水集团',
+    industry: '公共事业',
+    dataType: '时序数据',
+    submitTime: '2023-08-20 16:30:47',
+    status: 2, // 1-待审核 2-已通过 3-已拒绝
+    submitUser: '吴水质',
+    progressStatus: '已完成',
+    progressPercent: 100,
+    submitter: '吴水质',
+    providerContact: '孙工程师',
+    dataSource: '水质监测站',
+    updateFrequency: '每小时',
+    updateTime: '2023-08-22 09:25:18'
+  },
+  {
+    id: 3007,
+    name: '城市垃圾分类回收数据',
+    provider: '环保科技有限公司',
+    industry: '环保',
+    dataType: '结构化数据',
+    submitTime: '2023-09-02 10:18:36',
+    status: 3, // 1-待审核 2-已通过 3-已拒绝
+    submitUser: '郑环保',
+    progressStatus: '已拒绝',
+    progressPercent: 100,
+    submitter: '郑环保',
+    providerContact: '郑环保',
+    dataSource: '智能垃圾分类系统',
+    updateFrequency: '每日',
+    updateTime: '2023-09-04 14:28:50'
+  },
+  {
+    id: 3008,
+    name: '企业信用评分数据',
+    provider: '企业信用评估中心',
+    industry: '金融',
+    dataType: '结构化数据',
+    submitTime: '2023-08-15 13:42:25',
+    status: 2, // 1-待审核 2-已通过 3-已拒绝
+    submitUser: '赵信用',
+    progressStatus: '已完成',
+    progressPercent: 100,
+    submitter: '赵信用',
+    providerContact: '赵信用',
+    dataSource: '企业征信系统',
+    updateFrequency: '每月',
+    updateTime: '2023-08-18 10:15:33'
+  },
+  {
+    id: 3009,
+    name: '智慧校园学生行为数据',
+    provider: '教育信息化中心',
+    industry: '教育',
+    dataType: '结构化数据',
+    submitTime: '2023-09-12 09:28:45',
+    status: 1, // 1-待审核 2-已通过 3-已拒绝
+    submitUser: '孙教育',
+    progressStatus: '资料审核中',
+    progressPercent: 60,
+    submitter: '孙教育',
+    providerContact: '孙教育',
+    dataSource: '校园一卡通系统',
+    updateFrequency: '每日',
+    updateTime: null
+  },
+  {
+    id: 3010,
+    name: '城市房地产交易监测数据',
+    provider: '房产信息数据中心',
+    industry: '房地产',
+    dataType: '时序数据',
+    submitTime: '2023-08-28 15:55:38',
+    status: 2, // 1-待审核 2-已通过 3-已拒绝
+    submitUser: '钱房产',
+    progressStatus: '已完成',
+    progressPercent: 100,
+    submitter: '钱房产',
+    providerContact: '钱房产',
+    dataSource: '房产交易平台',
+    updateFrequency: '每日',
+    updateTime: '2023-08-30 11:23:45'
+  },
+  {
+    id: 3011,
+    name: '新能源汽车充电桩使用数据',
+    provider: '新能源科技有限公司',
+    industry: '能源',
+    dataType: '流式数据',
+    submitTime: '2023-09-15 08:30:22',
+    status: 1, // 1-待审核 2-已通过 3-已拒绝
+    submitUser: '周电能',
+    progressStatus: '资料审核中',
+    progressPercent: 20,
+    submitter: '周电能',
+    providerContact: '周电能',
+    dataSource: '充电桩物联网平台',
+    updateFrequency: '实时',
+    updateTime: null
+  },
+  {
+    id: 3012,
+    name: '气象灾害风险预警数据',
+    provider: '气象局',
+    industry: '气象',
+    dataType: '时序数据',
+    submitTime: '2023-08-10 10:15:30',
+    status: 2, // 1-待审核 2-已通过 3-已拒绝
+    submitUser: '冯气象',
+    progressStatus: '已完成',
+    progressPercent: 100,
+    submitter: '冯气象',
+    providerContact: '冯气象',
+    dataSource: '气象监测站网',
+    updateFrequency: '每小时',
+    updateTime: '2023-08-12 14:20:18'
+  }
+]
+
+// 为登记进度详情准备详细的进度节点数据
+export function getRegistryProgressNodes(status, submitTime, updateTime) {
+  const now = new Date().toISOString().replace('T', ' ').substring(0, 19);
+  
+  // 基础节点 - 提交申请（所有状态都有）
+  const nodes = [
+    {
+      title: '提交申请',
+      time: submitTime,
+      description: '提交数据登记申请，等待审核',
+      status: 'success',
+      operator: '数据提供方'
+    }
+  ];
+  
+  // 根据状态添加不同的节点
+  if (status === 1) { // 待审核
+    // 资料初审
+    nodes.push({
+      title: '资料初审',
+      time: new Date(new Date(submitTime).getTime() + 24*60*60*1000).toISOString().replace('T', ' ').substring(0, 19),
+      description: '系统自动校验提交资料的完整性',
+      status: 'success',
+      operator: '系统'
+    });
+    
+    // 专家评审中
+    nodes.push({
+      title: '专家评审',
+      time: '',
+      description: '正在进行专家评审，请耐心等待',
+      status: 'process',
+      operator: '评审专家'
+    });
+    
+    // 审核结果
+    nodes.push({
+      title: '审核结果',
+      time: '',
+      description: '等待审核完成',
+      status: 'wait',
+      operator: ''
+    });
+    
+    // 登记完成
+    nodes.push({
+      title: '登记完成',
+      time: '',
+      description: '等待审核通过后完成登记',
+      status: 'wait',
+      operator: ''
+    });
+  } else if (status === 2) { // 已通过
+    // 资料初审
+    nodes.push({
+      title: '资料初审',
+      time: new Date(new Date(submitTime).getTime() + 24*60*60*1000).toISOString().replace('T', ' ').substring(0, 19),
+      description: '系统自动校验提交资料的完整性，校验通过',
+      status: 'success',
+      operator: '系统'
+    });
+    
+    // 专家评审
+    nodes.push({
+      title: '专家评审',
+      time: new Date(new Date(submitTime).getTime() + 48*60*60*1000).toISOString().replace('T', ' ').substring(0, 19),
+      description: '专家评审已完成，评审通过',
+      status: 'success',
+      operator: '评审专家'
+    });
+    
+    // 审核结果
+    nodes.push({
+      title: '审核结果',
+      time: updateTime,
+      description: '审核通过，符合数据登记要求',
+      status: 'success',
+      operator: '数据管理员'
+    });
+    
+    // 登记完成
+    nodes.push({
+      title: '登记完成',
+      time: updateTime,
+      description: '恭喜您，数据登记已完成',
+      status: 'success',
+      operator: '系统'
+    });
+  } else if (status === 3) { // 已拒绝
+    // 资料初审
+    nodes.push({
+      title: '资料初审',
+      time: new Date(new Date(submitTime).getTime() + 24*60*60*1000).toISOString().replace('T', ' ').substring(0, 19),
+      description: '系统自动校验提交资料的完整性，校验通过',
+      status: 'success',
+      operator: '系统'
+    });
+    
+    // 专家评审
+    nodes.push({
+      title: '专家评审',
+      time: new Date(new Date(submitTime).getTime() + 48*60*60*1000).toISOString().replace('T', ' ').substring(0, 19),
+      description: '专家评审已完成，评审未通过',
+      status: 'error',
+      operator: '评审专家'
+    });
+    
+    // 审核结果
+    nodes.push({
+      title: '审核结果',
+      time: updateTime,
+      description: '审核未通过，不符合数据登记要求',
+      status: 'error',
+      operator: '数据管理员'
+    });
+    
+    // 登记完成
+    nodes.push({
+      title: '登记完成',
+      time: '',
+      description: '登记未完成，请根据审核意见修改后重新提交',
+      status: 'wait',
+      operator: ''
+    });
+  }
+  
+  return nodes;
 } 

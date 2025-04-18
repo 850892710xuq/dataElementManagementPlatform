@@ -88,7 +88,7 @@
           </el-descriptions>
           
           <!-- 审核历史记录 -->
-          <el-descriptions v-if="detail.reviewHistory && detail.reviewHistory.length > 0" title="审核历史" :column="1" border class="mt20">
+          <el-descriptions v-if="detail.reviewHistory && detail.reviewHistory.length > 0 && detail.status !== 1" title="审核历史" :column="1" border class="mt20">
             <el-descriptions-item>
               <el-timeline>
                 <el-timeline-item

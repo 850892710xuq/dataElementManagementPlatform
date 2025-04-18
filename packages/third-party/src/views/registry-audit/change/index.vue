@@ -61,7 +61,7 @@
         
         <el-table-column prop="changeType" label="变更类型" width="120" align="center" />
         
-        <el-table-column prop="submitTime" label="变更申请时间" width="150" align="center" show-overflow-tooltip />
+        <el-table-column prop="submitTime" label="变更申请时间" width="170" align="center" show-overflow-tooltip />
         
         <el-table-column prop="status" label="变更审核状态" width="120" align="center">
           <template #default="{ row }">

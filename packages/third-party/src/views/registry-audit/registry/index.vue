@@ -61,7 +61,7 @@
         
         <el-table-column prop="dataType" label="数据类型" width="120" align="center" />
         
-        <el-table-column prop="submitTime" label="提交时间" width="150" align="center" show-overflow-tooltip />
+        <el-table-column prop="submitTime" label="提交时间" width="170" align="center" show-overflow-tooltip />
         
         <el-table-column prop="status" label="审核状态" width="100" align="center">
           <template #default="{ row }">

@@ -1,5 +1,5 @@
 import { get, post, put } from '@/utils/request'
-import { registryAuditList, changeRegistryList, cancelRegistryList, registryAuditDetail, getRegistryAuditDetailById } from '@/mock/registry-audit'
+import { registryAuditList, changeRegistryList, cancelRegistryList, registryAuditDetail, getRegistryAuditDetailById, registryProgressList, getRegistryProgressNodes } from '@/mock/registry-audit'
 
 /**
  * 获取登记审核列表
@@ -242,4 +242,161 @@ export function getCancelRegistryDetail(id: number) {
       })
     }, 300)
   })
+}
+
+/**
+ * 获取登记进度列表数据（供数据登记方查询自己提交的数据）
+ * @param params 查询参数
+ * @returns 返回登记进度列表数据
+ */
+export function getRegistryProgressList(params = {}) {
+  // 返回模拟的登记进度数据
+  return new Promise(resolve => {
+    setTimeout(() => {
+      // 使用直接导入的数据而不是require
+      let filteredList = [...registryProgressList];
+      
+      // 按名称筛选
+      if (params.name) {
+        filteredList = filteredList.filter(item => 
+          item.name.includes(params.name)
+        );
+      }
+      
+      // 按提供方筛选
+      if (params.provider) {
+        filteredList = filteredList.filter(item => 
+          item.provider.includes(params.provider)
+        );
+      }
+      
+      // 按状态筛选
+      if (params.status !== null && params.status !== undefined) {
+        filteredList = filteredList.filter(item => 
+          item.status === params.status
+        );
+      }
+      
+      // 按时间范围筛选
+      if (params.timeRange && params.timeRange.length === 2) {
+        const startDate = new Date(params.timeRange[0]).getTime();
+        const endDate = new Date(params.timeRange[1]).getTime();
+        
+        filteredList = filteredList.filter(item => {
+          const itemDate = new Date(item.submitTime).getTime();
+          return itemDate >= startDate && itemDate <= endDate;
+        });
+      }
+      
+      // 分页处理
+      const pageSize = params.pageSize || 10;
+      const pageNum = params.pageNum || 1;
+      const startIndex = (pageNum - 1) * pageSize;
+      const endIndex = startIndex + pageSize;
+      const pagedList = filteredList.slice(startIndex, endIndex);
+      
+      resolve({
+        code: 200,
+        data: {
+          list: pagedList,
+          total: filteredList.length
+        },
+        message: '操作成功'
+      })
+    }, 500)
+  })
+}
+
+/**
+ * 获取登记进度详情
+ * @param id 登记项ID
+ * @returns 返回登记进度详情数据，包含详细的进度节点
+ */
+export function getRegistryProgressDetail(id) {
+  return new Promise(resolve => {
+    setTimeout(() => {
+      // 使用直接导入的数据和函数而不是require
+      
+      // 查找登记项
+      const item = registryProgressList.find(item => item.id === Number(id));
+      
+      if (item) {
+        // 获取详细的进度节点
+        const progressNodes = getRegistryProgressNodes(item.status, item.submitTime, item.updateTime);
+        
+        // 构造模拟的数据项
+        const dataItems = [
+          {
+            name: `${item.name}主数据项`,
+            type: item.dataType,
+            description: `这是${item.name}的主要数据项，包含核心数据结构`,
+            format: 'JSON',
+            updateFrequency: item.updateFrequency
+          },
+          {
+            name: `${item.name}辅助数据项`,
+            type: '结构化数据',
+            description: `这是${item.name}的辅助数据项，包含辅助分析数据`,
+            format: 'CSV',
+            updateFrequency: item.updateFrequency
+          },
+          {
+            name: `${item.name}元数据项`,
+            type: '元数据',
+            description: `这是${item.name}的元数据项，描述数据的结构和关系`,
+            format: 'JSON Schema',
+            updateFrequency: '每次数据结构变更时'
+          }
+        ];
+        
+        // 构造审核历史记录
+        let reviewHistory = [];
+        
+        if (item.status !== 1) { // 非待审核状态才有审核记录
+          const reviewerName = item.status === 2 ? '李数据' : '张审核';
+          const reviewAction = item.status === 2 ? '审核通过' : '审核拒绝';
+          const reviewStatus = item.status === 2 ? '已通过' : '已拒绝';
+          const reviewComments = item.status === 2 
+            ? '资料齐全，数据质量良好，符合登记要求' 
+            : '提交的数据质量不达标，需要补充完善数据样例和数据字典';
+          
+          reviewHistory = [
+            {
+              reviewer: reviewerName,
+              reviewTime: item.updateTime,
+              action: reviewAction,
+              status: reviewStatus,
+              comments: reviewComments
+            }
+          ];
+        }
+        
+        // 构造最终返回数据
+        const result = {
+          ...item,
+          progressNodes,
+          dataItems,
+          reviewHistory,
+          // 补充一些额外信息
+          dataDescription: `${item.name}是由${item.provider}提供的高质量${item.dataType}，来源于${item.dataSource}`,
+          dataFormat: 'JSON/CSV',
+          dataOrigin: item.dataSource,
+          usageScope: '行业研究、公共服务'
+        };
+        
+        resolve({
+          code: 200,
+          data: result,
+          message: '操作成功'
+        });
+      } else {
+        // 找不到对应ID的数据，返回错误信息
+        resolve({
+          code: 404,
+          data: null,
+          message: '未找到对应的登记项'
+        });
+      }
+    }, 500);
+  });
 } 

@@ -42,14 +42,20 @@ const routes: RouteRecordRaw[] = [
           {
             path: 'cancel',
             name: 'CancelRegistryList',
-            component: EmptyComponent,
+            component: () => import('@/views/registry-audit/cancel/index.vue'),
             meta: { title: '注销登记审核', icon: 'Delete' }
           },
           {
             path: 'progress',
             name: 'RegistryProgress',
-            component: EmptyComponent,
+            component: () => import('@/views/registry-audit/progress/index.vue'),
             meta: { title: '登记进度查询', icon: 'Search' }
+          },
+          {
+            path: 'progress-detail/:id',
+            name: 'RegistryProgressDetail',
+            component: () => import('@/views/registry-audit/progress/detail.vue'),
+            meta: { title: '登记进度详情', activeMenu: '/registry-audit/progress', icon: 'Document' }
           },
           {
             path: 'detail/:id',
@@ -66,7 +72,7 @@ const routes: RouteRecordRaw[] = [
           {
             path: 'cancel-detail/:id',
             name: 'CancelRegistryDetail',
-            component: EmptyComponent,
+            component: () => import('@/views/registry-audit/cancel/detail.vue'),
             meta: { title: '注销登记详情', activeMenu: '/registry-audit/cancel', icon: 'Delete' }
           }
         ]
