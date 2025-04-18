@@ -5,10 +5,6 @@
       <div class="detail-header">
         <div class="title">数据登记审核详情</div>
         <div class="operation-buttons">
-          <el-button @click="getDetail" type="info" plain>
-            <el-icon><Refresh /></el-icon>
-            刷新
-          </el-button>
           <el-button @click="goBack">
             返回
           </el-button>
@@ -115,7 +111,7 @@
     
     <!-- 审核弹窗 -->
     <el-dialog title="数据登记审核" v-model="auditVisible" width="500px" append-to-body>
-      <el-form ref="auditForm" :model="auditForm" label-width="100px">
+      <el-form ref="auditFormRef" :model="auditForm" label-width="100px">
         <el-form-item label="数据名称">
           <span>{{ detail.name }}</span>
         </el-form-item>
@@ -128,7 +124,7 @@
             <el-radio label="reject">不通过</el-radio>
           </el-radio-group>
         </el-form-item>
-        <el-form-item label="审核意见" prop="remarks">
+        <el-form-item label="审核意见" prop="remarks" :rules="[{ required: true, message: '请输入审核意见', trigger: 'blur' }]">
           <el-input 
             v-model="auditForm.remarks" 
             type="textarea" 
@@ -150,7 +146,7 @@
 <script setup lang="ts">
 import { ref, reactive, onMounted } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
-import { Back, Check, Document, Refresh } from '@element-plus/icons-vue'
+import { Document, Refresh } from '@element-plus/icons-vue'
 import { ElMessage } from 'element-plus'
 import { getRegistryAuditDetail, auditRegistry } from '@/api/registry-audit'
 
@@ -208,6 +204,7 @@ const auditForm = reactive({
   result: 'pass',   // pass: 通过, reject: 拒绝
   remarks: ''
 })
+const auditFormRef = ref()
 
 // 返回列表页
 const goBack = () => {
@@ -258,6 +255,8 @@ const getHistoryItemType = (status: string) => {
 // 提交审核
 const submitAudit = async () => {
   try {
+    await auditFormRef.value.validate()
+    
     const params = {
       result: auditForm.result,
       remarks: auditForm.remarks
@@ -268,19 +267,8 @@ const submitAudit = async () => {
     ElMessage.success('审核操作成功')
     auditVisible.value = false
     
-    // 更新页面数据
-    detail.value.status = auditForm.result === 'pass' ? 2 : 3
-    
-    // 更新状态文本
-    detail.value.statusText = auditForm.result === 'pass' ? '已通过' : '已拒绝'
-    
-    // 如果返回了审核记录，添加到历史记录中
-    if (res.data && res.data.reviewRecord) {
-      if (!detail.value.reviewHistory) {
-        detail.value.reviewHistory = []
-      }
-      detail.value.reviewHistory.push(res.data.reviewRecord)
-    }
+    // 刷新详情数据
+    getDetail()
   } catch (error) {
     console.error('审核操作失败', error)
     ElMessage.error('审核操作失败')

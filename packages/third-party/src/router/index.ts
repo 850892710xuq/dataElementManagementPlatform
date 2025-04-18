@@ -30,13 +30,13 @@ const routes: RouteRecordRaw[] = [
           {
             path: 'list',
             name: 'RegistryAuditList',
-            component: () => import('@/views/registry-audit/list/index.vue'),
+            component: () => import('@/views/registry-audit/registry/index.vue'),
             meta: { title: '登记审核列表', icon: 'Document' }
           },
           {
             path: 'change',
             name: 'ChangeRegistryList',
-            component: EmptyComponent,
+            component: () => import('@/views/registry-audit/change/index.vue'),
             meta: { title: '变更登记管理', icon: 'Edit' }
           },
           {
@@ -54,13 +54,13 @@ const routes: RouteRecordRaw[] = [
           {
             path: 'detail/:id',
             name: 'RegistryAuditDetail',
-            component: () => import('@/views/registry-audit/detail/index.vue'),
+            component: () => import('@/views/registry-audit/registry/detail.vue'),
             meta: { title: '登记审核详情', activeMenu: '/registry-audit/list', icon: 'Document' }
           },
           {
             path: 'change-detail/:id',
             name: 'ChangeRegistryDetail',
-            component: EmptyComponent,
+            component: () => import('@/views/registry-audit/change/detail.vue'),
             meta: { title: '变更登记详情', activeMenu: '/registry-audit/change', icon: 'Edit' }
           },
           {

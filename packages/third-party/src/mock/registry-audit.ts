@@ -115,50 +115,155 @@ export const registryAuditList = [
 // 变更登记列表数据
 export const changeRegistryList = [
   {
-    id: 2001,
-    name: '城市公交实时位置及客流数据',
-    provider: '市公共交通集团有限公司',
-    changeType: '数据结构变更',
-    changeReason: '新增乘客流量预测字段，优化数据获取频率',
-    submitTime: '2023-07-19 10:25:46',
-    status: 1, // 1-待审核 2-已通过 3-已拒绝
-    submitUser: '张志明',
-    originalId: 1001
-  },
-  {
-    id: 2002,
-    name: '重点区域空气质量检测数据',
-    provider: '市环境监测中心',
-    changeType: '使用范围变更',
-    changeReason: '扩大数据授权范围，允许第三方研究机构使用',
-    submitTime: '2023-07-17 09:18:35',
-    status: 2,
-    submitUser: '王红梅',
-    originalId: 1003,
-    updateTime: '2023-07-18 16:45:21'
-  },
-  {
-    id: 2003,
-    name: '城市供水水质监测数据',
-    provider: '市自来水公司',
-    changeType: '数据提供方信息变更',
-    changeReason: '单位联系人和联系方式变更',
-    submitTime: '2023-07-18 14:33:27',
+    id: '2001',
+    name: '城市交通实时流量数据',
+    provider: '智慧交通管理局',
+    industry: '交通',
+    changeType: '内容变更',
+    changeReason: '数据结构优化，增加车流密度和路况信息字段',
+    submitTime: '2023-10-15 09:23:45',
+    submitter: '张建国',
     status: 1,
-    submitUser: '赵明辉',
-    originalId: 1004
+    originalId: '1001'
   },
   {
-    id: 2004,
-    name: '医疗资源分布及使用情况数据',
-    provider: '市卫健委',
-    changeType: '更新频率变更',
-    changeReason: '由每周更新改为每天更新',
-    submitTime: '2023-07-15 11:22:38',
+    id: '2002',
+    name: '医疗健康数据共享平台',
+    provider: '省卫生健康委员会',
+    industry: '医疗',
+    changeType: '接口变更',
+    changeReason: '升级API接口规范，由REST迁移至GraphQL，提升查询效率',
+    submitTime: '2023-10-12 14:35:20',
+    submitter: '李卫东',
     status: 2,
-    submitUser: '陈建国',
-    originalId: 1006,
-    updateTime: '2023-07-16 09:57:14'
+    originalId: '1003',
+    updateTime: '2023-10-14 10:25:16'
+  },
+  {
+    id: '2003',
+    name: '企业信用评估数据',
+    provider: '金融监管科技中心',
+    industry: '金融',
+    changeType: '属性变更',
+    changeReason: '根据监管要求调整风险评估指标算法和权重',
+    submitTime: '2023-10-10 16:40:30',
+    submitter: '王丽华',
+    status: 3,
+    originalId: '1005',
+    updateTime: '2023-10-11 11:18:45'
+  },
+  {
+    id: '2004',
+    name: '空气质量监测网格数据',
+    provider: '环境监测中心',
+    industry: '环保',
+    changeType: '数据源变更',
+    changeReason: '监测站点布局调整，数据采集设备升级，精度提升',
+    submitTime: '2023-10-08 09:32:15',
+    submitter: '孙明亮',
+    status: 1,
+    originalId: '1004'
+  },
+  {
+    id: '2005',
+    name: '城市公共设施分布数据',
+    provider: '城市规划与建设局',
+    industry: '城建',
+    changeType: '安全级别变更',
+    changeReason: '根据数据安全法要求，提升数据安全保护级别',
+    submitTime: '2023-10-05 13:25:40',
+    submitter: '赵琳',
+    status: 2,
+    originalId: '1006',
+    updateTime: '2023-10-07 09:12:33'
+  },
+  {
+    id: '2006',
+    name: '农产品批发价格指数',
+    provider: '农业农村部信息中心',
+    industry: '农业',
+    changeType: '更新周期变更',
+    changeReason: '由每周更新调整为每日实时更新，提高数据时效性',
+    submitTime: '2023-10-03 10:15:25',
+    submitter: '刘农',
+    status: 1,
+    originalId: '1008'
+  },
+  {
+    id: '2007',
+    name: '电力负荷预测数据服务',
+    provider: '省电力公司',
+    industry: '能源',
+    changeType: '数据模型变更',
+    changeReason: '引入新的AI预测模型，提升预测准确率',
+    submitTime: '2023-09-28 15:50:12',
+    submitter: '钱电',
+    status: 3,
+    originalId: '1009',
+    updateTime: '2023-09-30 16:45:28'
+  },
+  {
+    id: '2008',
+    name: '旅游景点客流量分析',
+    provider: '文化旅游大数据中心',
+    industry: '旅游',
+    changeType: '内容变更',
+    changeReason: '增加游客画像和消费行为分析维度',
+    submitTime: '2023-09-25 11:30:45',
+    submitter: '吴旅',
+    status: 2,
+    originalId: '1012',
+    updateTime: '2023-09-26 14:22:51'
+  },
+  {
+    id: '2009',
+    name: '城市地下管网数据资源',
+    provider: '市政工程管理处',
+    industry: '市政',
+    changeType: '精度变更',
+    changeReason: '完成新一轮管网普查，更新数据精度和完整性',
+    submitTime: '2023-09-20 08:45:30',
+    submitter: '郑工',
+    status: 1,
+    originalId: '1007'
+  },
+  {
+    id: '2010',
+    name: '气象灾害风险预警数据',
+    provider: '气象局',
+    industry: '气象',
+    changeType: '服务变更',
+    changeReason: '新增极端天气事件预警推送服务',
+    submitTime: '2023-09-18 16:20:10',
+    submitter: '冯天',
+    status: 1,
+    originalId: '1010'
+  },
+  {
+    id: '2011',
+    name: '商业区域人流热力图',
+    provider: '城市大数据研究院',
+    industry: '商业',
+    changeType: '采集方式变更',
+    changeReason: '由传统视频分析升级为多源数据融合分析',
+    submitTime: '2023-09-15 13:10:25',
+    submitter: '陈商',
+    status: 2,
+    originalId: '1011',
+    updateTime: '2023-09-17 10:35:42'
+  },
+  {
+    id: '2012',
+    name: '公共安全监控数据',
+    provider: '公安局技术处',
+    industry: '安防',
+    changeType: '脱敏规则变更',
+    changeReason: '根据最新隐私保护条例，调整个人信息脱敏规则',
+    submitTime: '2023-09-12 10:05:35',
+    submitter: '徐安',
+    status: 3,
+    originalId: '1002',
+    updateTime: '2023-09-14 09:48:20'
   }
 ]
 
@@ -383,4 +488,136 @@ export const registryAuditDetail = {
 // 根据ID获取登记审核详情的函数
 export function getRegistryAuditDetailById(id: number) {
   return registryAuditDetails.find(item => item.id === id) || null;
+}
+
+// 变更登记详情数据
+export const changeRegistryDetails = [
+  {
+    id: '2001',
+    name: '城市交通实时流量数据',
+    provider: '智慧交通管理局',
+    providerContact: '张建国',
+    providerPhone: '010-88661234',
+    providerEmail: 'zhangjg@traffic.gov.cn',
+    industry: '交通',
+    dataCategory: '城市交通数据',
+    changeType: '内容变更',
+    changeReason: '数据结构优化，增加车流密度和路况信息字段',
+    submitTime: '2023-10-15 09:23:45',
+    submitter: '张建国',
+    status: 1,
+    changeDetails: [
+      {
+        title: '数据内容',
+        before: '包含车辆数量、平均车速、拥堵指数',
+        after: '包含车辆数量、平均车速、拥堵指数、车流密度、道路状况评级'
+      },
+      {
+        title: '数据格式',
+        before: 'JSON',
+        after: 'JSON, CSV'
+      },
+      {
+        title: '更新频率',
+        before: '每小时',
+        after: '每10分钟'
+      }
+    ],
+    documents: [
+      { id: '1', name: '数据变更申请表.pdf', url: '/files/traffic-change-request.pdf' },
+      { id: '2', name: '数据结构变更说明.docx', url: '/files/traffic-structure-change.docx' },
+      { id: '3', name: '新增字段使用说明.pdf', url: '/files/traffic-new-fields.pdf' }
+    ],
+    originalId: '1001'
+  },
+  {
+    id: '2002',
+    name: '医疗健康数据共享平台',
+    provider: '省卫生健康委员会',
+    providerContact: '李卫东',
+    providerPhone: '010-65432198',
+    providerEmail: 'liwd@health.gov.cn',
+    industry: '医疗',
+    dataCategory: '医疗健康数据',
+    changeType: '接口变更',
+    changeReason: '升级API接口规范，由REST迁移至GraphQL，提升查询效率',
+    submitTime: '2023-10-12 14:35:20',
+    submitter: '李卫东',
+    status: 2,
+    auditTime: '2023-10-14 10:25:16',
+    auditor: '王审核',
+    auditResult: 'pass',
+    auditRemarks: '接口变更方案设计合理，考虑了兼容性和性能问题，同意升级。',
+    changeDetails: [
+      {
+        title: 'API调用方式',
+        before: 'REST API',
+        after: 'GraphQL API + 兼容层REST API'
+      },
+      {
+        title: '认证方式',
+        before: 'API Key',
+        after: 'OAuth 2.0 + JWT'
+      },
+      {
+        title: '数据获取效率',
+        before: '多次请求获取关联数据',
+        after: '单次请求获取所需全部数据'
+      }
+    ],
+    documents: [
+      { id: '1', name: 'API接口变更方案.pdf', url: '/files/health-api-change.pdf' },
+      { id: '2', name: 'GraphQL架构设计.docx', url: '/files/health-graphql-design.docx' },
+      { id: '3', name: '兼容性测试报告.pdf', url: '/files/health-compatibility-test.pdf' }
+    ],
+    originalId: '1003'
+  },
+  {
+    id: '2003',
+    name: '企业信用评估数据',
+    provider: '金融监管科技中心',
+    providerContact: '王丽华',
+    providerPhone: '010-66554433',
+    providerEmail: 'wanglh@fintech.gov.cn',
+    industry: '金融',
+    dataCategory: '企业信用数据',
+    changeType: '属性变更',
+    changeReason: '根据监管要求调整风险评估指标算法和权重',
+    submitTime: '2023-10-10 16:40:30',
+    submitter: '王丽华',
+    status: 3,
+    auditTime: '2023-10-11 11:18:45',
+    auditor: '周审核',
+    auditResult: 'reject',
+    auditRemarks: '指标算法变更缺乏足够的验证数据支持，建议补充验证报告后再次提交。',
+    changeDetails: [
+      {
+        title: '风险评估指标',
+        before: '基于历史交易数据的5项核心指标',
+        after: '基于历史交易及关联方风险的8项综合指标'
+      },
+      {
+        title: '算法模型',
+        before: '线性加权模型',
+        after: '机器学习模型(随机森林)'
+      },
+      {
+        title: '安全等级',
+        before: '二级',
+        after: '三级'
+      }
+    ],
+    documents: [
+      { id: '1', name: '指标调整方案.pdf', url: '/files/credit-indicators-adjustment.pdf' },
+      { id: '2', name: '算法模型说明.pptx', url: '/files/credit-algorithm-model.pptx' },
+      { id: '3', name: '监管合规说明.docx', url: '/files/credit-compliance.docx' }
+    ],
+    originalId: '1005'
+  }
+]
+
+// 获取变更登记详情数据
+export function getChangeRegistryDetailById(id: string) {
+  const detail = changeRegistryDetails.find(item => item.id === id)
+  return detail || null
 } 

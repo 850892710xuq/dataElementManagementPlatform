@@ -118,22 +118,22 @@
     
     <!-- 审核弹窗 -->
     <el-dialog title="数据登记审核" v-model="auditVisible" width="500px" append-to-body>
-      <el-form ref="auditForm" :model="auditForm" label-width="100px">
+      <el-form ref="auditFormRef" :model="auditForm" label-width="100px">
         <el-form-item label="数据名称">
           <span>{{ (currentRow as any).name }}</span>
         </el-form-item>
         <el-form-item label="数据提供方">
           <span>{{ (currentRow as any).provider }}</span>
         </el-form-item>
-        <el-form-item label="审核结果" prop="status">
-          <el-radio-group v-model="auditForm.status">
-            <el-radio :label="2">通过</el-radio>
-            <el-radio :label="3">不通过</el-radio>
+        <el-form-item label="审核结果" prop="result">
+          <el-radio-group v-model="auditForm.result">
+            <el-radio label="pass">通过</el-radio>
+            <el-radio label="reject">不通过</el-radio>
           </el-radio-group>
         </el-form-item>
-        <el-form-item label="审核意见" prop="remark">
+        <el-form-item label="审核意见" prop="remarks" :rules="[{ required: true, message: '请输入审核意见', trigger: 'blur' }]">
           <el-input 
-            v-model="auditForm.remark" 
+            v-model="auditForm.remarks" 
             type="textarea" 
             placeholder="请输入审核意见" 
             :rows="4"
@@ -142,8 +142,8 @@
       </el-form>
       <template #footer>
         <div class="dialog-footer">
-          <el-button @click="auditVisible = false">取消</el-button>
-          <el-button type="primary" @click="submitAudit">确认</el-button>
+          <el-button @click="auditVisible = false">取 消</el-button>
+          <el-button type="primary" @click="submitAudit">确 认</el-button>
         </div>
       </template>
     </el-dialog>
@@ -154,7 +154,7 @@
 import { ref, reactive, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import { Search, Refresh, View, Edit } from '@element-plus/icons-vue'
-import { ElMessage, ElMessageBox } from 'element-plus'
+import { ElMessage } from 'element-plus'
 import { getRegistryAuditList, auditRegistry } from '@/api/registry-audit'
 
 const router = useRouter()
@@ -170,7 +170,7 @@ const queryParams = reactive({
 })
 
 // 表格数据
-const registryList = ref([])
+const registryList = ref<any[]>([])
 const total = ref(0)
 const loading = ref(false)
 
@@ -178,9 +178,10 @@ const loading = ref(false)
 const auditVisible = ref(false)
 const currentRow = ref({})
 const auditForm = reactive({
-  status: 2,
-  remark: ''
+  result: 'pass',
+  remarks: ''
 })
+const auditFormRef = ref()
 
 // 获取登记审核列表
 const getList = async () => {
@@ -229,8 +230,8 @@ const handleCurrentChange = (current: number) => {
 // 审核操作
 const handleAudit = (row: any) => {
   currentRow.value = row
-  auditForm.status = 2
-  auditForm.remark = ''
+  auditForm.result = 'pass'
+  auditForm.remarks = ''
   auditVisible.value = true
 }
 
@@ -242,9 +243,11 @@ const handleDetail = (row: any) => {
 // 提交审核
 const submitAudit = async () => {
   try {
+    await auditFormRef.value.validate()
+    
     const params = {
-      result: auditForm.status === 2 ? 'pass' : 'reject',
-      remarks: auditForm.remark
+      result: auditForm.result,
+      remarks: auditForm.remarks
     }
     
     const res: any = await auditRegistry(
@@ -257,6 +260,7 @@ const submitAudit = async () => {
     getList()
   } catch (error) {
     console.error('审核操作失败', error)
+    ElMessage.error('审核操作失败')
   }
 }
 
